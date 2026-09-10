@@ -1,0 +1,2 @@
+redis==8.1.0
+termcolor==3.3.0
