@@ -63,3 +63,4 @@ try:
     response = httpx.get('https://httpbin.org/deley/5', timeout=2)
 except httpx.ReadTimeout as e:
     print("Запрос превысил лимит по времени:", {e})
+
