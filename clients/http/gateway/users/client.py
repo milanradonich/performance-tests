@@ -15,7 +15,7 @@ class CreateUserRequestDict(TypedDict):
 
 class UsersGatewayHTTPClient(HTTPClient):
     def get_user_api(self, user_id: str) -> Response:
-        return self.get(f"/api/users/{user_id}")
+        return self.get(f"/api/v1/users/{user_id}")
 
     def create_user_api(self, request: CreateUserRequestDict) -> Response:
         return self.post(f"/api/v1/users", json=request)
