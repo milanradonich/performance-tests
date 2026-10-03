@@ -19,7 +19,7 @@ class UserDict(TypedDict):
     phoneNumber: str
 
 
-class GetUserResponseDict(UserDict):
+class GetUserResponseDict(TypedDict):
     """
     Структура ответа на получение пользователя
     """

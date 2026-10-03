@@ -133,7 +133,7 @@ class AccountsGatewayHTTPClient(HTTPClient):
         """
         return self.post("/api/v1/accounts/open-credit-card-account", json=request)
 
-    def get_accounts(self, user_id: str) -> OpenDepositAccountRequestDict:
+    def get_accounts(self, user_id: str) -> GetAccountsResponseDict:
         """
         Получает список счетов пользователя
         :param user_id: идентификатор пользователя

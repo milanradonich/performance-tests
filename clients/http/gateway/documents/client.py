@@ -14,21 +14,21 @@ class DocumentDict(TypedDict):
     document: str
 
 
-class GetTariffDocumentResponseDict(DocumentDict):
+class GetTariffDocumentResponseDict(TypedDict):
     """Структура ответа на получение документа по тарифу"""
     tariff: DocumentDict
 
 
-class GetContractDocumentResponseDict(DocumentDict):
+class GetContractDocumentResponseDict(TypedDict):
     """Структура ответа на получение документа по контракту"""
-    tariff: DocumentDict
+    contract: DocumentDict
 
 
 class DocumentsGatewayHTTPClient(HTTPClient):
     """
     Клиент для взаимодействия с /api/v1/documents
     """
-    def get_tarif_document_api(self, account_id: str) -> Response:
+    def get_tariff_document_api(self, account_id: str) -> Response:
         """
         Получение тарифа по счету
         :param account_id: id счета
@@ -50,7 +50,7 @@ class DocumentsGatewayHTTPClient(HTTPClient):
         :param account_id:
         :return: ответ запроса и ссылка на документ
         """
-        response = self.get_tarif_document_api(account_id)
+        response = self.get_tariff_document_api(account_id)
         return response.json()
 
     def get_contract_document(self, account_id: str) -> GetContractDocumentResponseDict:
@@ -59,7 +59,7 @@ class DocumentsGatewayHTTPClient(HTTPClient):
         :param account_id:
         :return: ответ запроса и ссылка на документ
         """
-        response = self.get_tarif_document_api(account_id)
+        response = self.get_contract_document_api(account_id)
         return response.json()
 
 
