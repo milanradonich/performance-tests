@@ -48,11 +48,11 @@ class UsersGatewayHTTPClient(HTTPClient):
         :return: словарь с данными созданного пользователя
         """
         request = CreateUserRequestSchema(
-            email=f"user_{time.time()}@example.com",
-            last_name='string',
-            first_name='string',
-            middle_name='string',
-            phone_number='string',
+            # email=f"user_{time.time()}@example.com",
+            # last_name='string',
+            # first_name='string',
+            # middle_name='string',
+            # phone_number='string',
         )
         response = self.create_user_api(request)
         return CreateUserResponseSchema.model_validate_json(response.text)
