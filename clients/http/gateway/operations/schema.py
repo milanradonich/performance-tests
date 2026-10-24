@@ -2,6 +2,8 @@ from enum import Enum
 
 from pydantic import BaseModel, Field, ConfigDict
 
+from tools.fakers import fake
+
 
 class BaseOperationStatus(str, Enum):
     """Базовый класс статусов операций.
@@ -50,8 +52,8 @@ class BaseMakeOperationRequestSchema(BaseModel):
     """
     model_config = ConfigDict(populate_by_name=True)
 
-    status: BaseOperationStatus
-    amount: float
+    status: BaseOperationStatus = Field(default_factory=lambda: fake.enum(BaseOperationStatus))
+    amount: float = Field(default_factory=fake.email)
     card_id: str = Field(alias="cardId")
     account_id: str = Field(alias="accountId")
 
@@ -84,7 +86,7 @@ class MakePurchaseOperationRequestSchema(BaseMakeOperationRequestSchema):
     """
     Структура для создания операции покупки
     """
-    category: str
+    category: str = Field(default_factory=fake.category)
 
 
 class MakeBillPaymentOperationRequestSchema(BaseMakeOperationRequestSchema):

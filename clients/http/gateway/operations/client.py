@@ -118,8 +118,6 @@ class OperationsGatewayHTTPClient(HTTPClient):
         :return: словарь с данными открытого счета
         """
         request = MakeFeeOperationRequestSchema(
-            status=BaseOperationStatus.COMPLETED,
-            amount=55.77,
             card_id=card_id,
             account_id=account_id
         )
@@ -142,8 +140,6 @@ class OperationsGatewayHTTPClient(HTTPClient):
         :return: объект httpx.Response с данными созданной операции
         """
         request = MakeTopUpOperationRequestSchema(
-            status=BaseOperationStatus.COMPLETED,
-            amount=55.77,
             card_id=card_id,
             account_id=account_id
         )
@@ -166,8 +162,6 @@ class OperationsGatewayHTTPClient(HTTPClient):
         :return: объект httpx.Response с данными созданной операции
         """
         request = MakeCashbackOperationRequestSchema(
-            status=BaseOperationStatus.COMPLETED,
-            amount=55.77,
             card_id=card_id,
             account_id=account_id
         )
@@ -190,8 +184,6 @@ class OperationsGatewayHTTPClient(HTTPClient):
         :return: объект httpx.Response с данными созданной операции
         """
         request = MakeTransferOperationRequestSchema(
-            status=BaseOperationStatus.COMPLETED,
-            amount=55.77,
             card_id=card_id,
             account_id=account_id
         )
@@ -214,11 +206,8 @@ class OperationsGatewayHTTPClient(HTTPClient):
         :return: объект httpx.Response с данными созданной операции
         """
         request = MakePurchaseOperationRequestSchema(
-            status=BaseOperationStatus.COMPLETED,
-            amount=55.77,
             card_id=card_id,
             account_id=account_id,
-            category='taxi'
         )
         response = self.make_purchase_operation_api(request)
         return MakePurchaseOperationResponseSchema.model_validate_json(response.text)
@@ -239,8 +228,6 @@ class OperationsGatewayHTTPClient(HTTPClient):
         :return: объект httpx.Response с данными созданной операции
         """
         request = MakeBillPaymentOperationRequestSchema(
-            status=BaseOperationStatus.COMPLETED,
-            amount=55.77,
             card_id=card_id,
             account_id=account_id
         )
@@ -264,8 +251,6 @@ class OperationsGatewayHTTPClient(HTTPClient):
         :return: объект httpx.Response с данными созданной операции
         """
         request = MakeCashWithdrawalOperationRequestSchema(
-            status=BaseOperationStatus.COMPLETED,
-            amount=55.77,
             card_id=card_id,
             account_id=account_id
         )
