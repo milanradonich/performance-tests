@@ -53,7 +53,7 @@ class BaseMakeOperationRequestSchema(BaseModel):
     model_config = ConfigDict(populate_by_name=True)
 
     status: BaseOperationStatus = Field(default_factory=lambda: fake.enum(BaseOperationStatus))
-    amount: float = Field(default_factory=fake.email)
+    amount: float = Field(default_factory=fake.amount)
     card_id: str = Field(alias="cardId")
     account_id: str = Field(alias="accountId")
 

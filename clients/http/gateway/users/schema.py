@@ -39,7 +39,3 @@ class CreateUserResponseSchema(BaseModel):
     Структура ответа на создание пользователя
     """
     user: UserSchema
-
-
-create_user_request = CreateUserRequestSchema()
-print(create_user_request)
