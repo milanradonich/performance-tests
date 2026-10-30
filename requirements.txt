@@ -4,3 +4,4 @@ termcolor==3.3.0
 httpx
 pydantic
 faker
+grpcio
