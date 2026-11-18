@@ -14,14 +14,14 @@ class OpenDebitCardAccountScenarioUser(HttpUser):
             "middleName": fake.middle_name(),
             "phoneNumber": fake.phone_number()
         }
-        response = self.client.post("api/v1/users", json=request)
+        response = self.client.post("/api/v1/users", json=request)
 
         self.user_data = response.json()
 
     @task
     def open_debit_card_account(self):
         self.client.post(
-            "api/v1/accounts/open-debit-card-account",
-            json=self.user_data['user']['id'],
-            name="api/v1/accounts/open-debit-card-account"
+            "/api/v1/accounts/open-debit-card-account",
+            json={"userId": self.user_data['user']['id']},
+            name="/api/v1/accounts/open-debit-card-account"
         )
