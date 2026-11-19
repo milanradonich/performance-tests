@@ -41,8 +41,8 @@ class OperationsGatewayHTTPClient(HTTPClient):
         """
         return self.get(
             '/api/v1/operations',
-            params=QueryParams(**query.model_dump(by_alias=True),
-            extensions=HTTPClientExtensions(route="/api/v1/operations"))
+            params=QueryParams(**query.model_dump(by_alias=True)),
+            extensions=HTTPClientExtensions(route="/api/v1/operations")
         )
 
     def get_operations(self, account_id: str) -> GetOperationsResponseSchema:
@@ -63,8 +63,9 @@ class OperationsGatewayHTTPClient(HTTPClient):
         """
         return self.get(
             '/api/v1/operations/operations-summary',
-            params=QueryParams(**query.model_dump(by_alias=True),
-            extensions=HTTPClientExtensions(route="/api/v1/operations/operations-summary")))
+            params=QueryParams(**query.model_dump(by_alias=True)),
+            extensions=HTTPClientExtensions(route="/api/v1/operations/operations-summary")
+        )
 
     def get_operations_summary(self, account_id: str) -> GetOperationsSummaryResponseSchema:
         """
