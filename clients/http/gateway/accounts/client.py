@@ -4,7 +4,7 @@ from locust.env import Environment
 from clients.http.client import HTTPClient, HTTPClientExtensions
 from clients.http.gateway.accounts.schema import GetAccountsQuerySchema, OpenDepositAccountRequestSchema, \
     OpenSavingsAccountRequestSchema, OpenDebitCardAccountRequestSchema, OpenCreditCardAccountRequestSchema, \
-    GetAccountsResponseSchema, OpenDepositAccountResponseSchema, OpenDSavingsAccountResponseSchema, \
+    GetAccountsResponseSchema, OpenDepositAccountResponseSchema, OpenSavingsAccountResponseSchema, \
     OpenDebitCardAccountResponseSchema, OpenCreditCardAccountResponseSchema
 from clients.http.gateway.client import build_gateway_http_client, build_gateway_locust_http_client
 
@@ -78,7 +78,7 @@ class AccountsGatewayHTTPClient(HTTPClient):
         response = self.open_deposit_account_api(request)
         return OpenDepositAccountResponseSchema.model_validate_json(response.text)
 
-    def open_savings_account(self, user_id: str) -> OpenDSavingsAccountResponseSchema:
+    def open_savings_account(self, user_id: str) -> OpenSavingsAccountResponseSchema:
         """
         Открывает сберегательный счет пользователю
         :param user_id: идентификатор пользователя
@@ -86,7 +86,7 @@ class AccountsGatewayHTTPClient(HTTPClient):
         """
         request = OpenSavingsAccountRequestSchema(user_id=user_id)
         response = self.open_savings_account_api(request)
-        return OpenDSavingsAccountResponseSchema.model_validate_json(response.text)
+        return OpenSavingsAccountResponseSchema.model_validate_json(response.text)
 
     def open_debit_card_account(self, user_id: str) -> OpenDebitCardAccountResponseSchema:
         """

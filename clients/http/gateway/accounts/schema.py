@@ -69,7 +69,7 @@ class OpenSavingsAccountRequestSchema(BaseModel):
     user_id: str = Field(alias="userId")
 
 
-class OpenDSavingsAccountResponseSchema(BaseModel):
+class OpenSavingsAccountResponseSchema(BaseModel):
     """
     Структура ответа на открытие сберегательного счета
     """
